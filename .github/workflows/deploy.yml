@@ -12,10 +12,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Compress files
-        run: |
-          tar -czf myfiles.tar.gz .  # Nén tất cả file trong thư mục hiện tại
-
       - name: Deploy to AwardSpace
         run: |
-          curl -T myfiles.tar.gz --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} myweatherhi.atwebpages.com:/home/www/myweatherhi.atwebpages.com/
+          for file in *; do
+            curl -T "$file" --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} myweatherhi.atwebpages.com:/home/www/myweatherhi.atwebpages.com/
+          done
