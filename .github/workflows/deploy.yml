@@ -1,0 +1,20 @@
+name: Deploy to AwardSpace
+
+on:
+  push:
+    branches:
+      - main  # Thay đổi thành nhánh mà bạn muốn theo dõi
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to AwardSpace
+        run: |
+          curl -T ./ 4519755@/myweatherhi.atwebpages.com:/home/www/myweatherhi.atwebpages.com/
+        env:
+          USERNAME: ${{ secrets.AWARDSPACE_USERNAME }}
+          PASSWORD: ${{ secrets.AWARDSPACE_PASSWORD }}
