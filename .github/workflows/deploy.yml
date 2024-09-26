@@ -15,5 +15,5 @@ jobs:
       - name: Deploy to AwardSpace
         run: |
           for file in *; do
-            curl -T "$file" --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} smtp://myweatherhi.atwebpages.com/home/www/myweatherhi.atwebpages.com/ -v
+            curl -T "$file" --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} ftp://myweatherhi.atwebpages.com/home/www/myweatherhi.atwebpages.com/ -v
           done
