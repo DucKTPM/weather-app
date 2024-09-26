@@ -14,7 +14,5 @@ jobs:
 
       - name: Deploy to AwardSpace
         run: |
-          curl -T ./ 4519755@/myweatherhi.atwebpages.com:/home/www/myweatherhi.atwebpages.com/
-        env:
-          USERNAME: ${{ secrets.AWARDSPACE_USERNAME }}
-          PASSWORD: ${{ secrets.AWARDSPACE_PASSWORD }}
+          curl -T ./ . --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} @myweatherhi.atwebpages.com:/home/www/myweatherhi.atwebpages.com/
+
