@@ -15,6 +15,5 @@ jobs:
       - name: Deploy to AwardSpace
         run: |
           for file in *; do
-            curl -T "$file" --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} smtp://cp1.awardspace.net/domain-manager/
-          done
+            curl -T "$file" --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} smtp://https://cp1.awardspace.net/file-manager/www/myweatherhi.atwebpages.com          done
 
