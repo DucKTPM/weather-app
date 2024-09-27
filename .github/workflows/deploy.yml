@@ -3,7 +3,7 @@ name: Deploy to AwardSpace
 on:
   push:
     branches:
-      - main  # Theo dõi nhánh 'main'
+      - main
 
 jobs:
   deploy:
@@ -15,5 +15,5 @@ jobs:
       - name: Deploy to AwardSpace
         run: |
           for file in *; do
-            curl -T "$file" --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} ftp://https://cp1.awardspace.net/file-manager/www/myweatherhi.atwebpages.com/
+            curl -T "$file" --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} ftp://myweatherhi.atwebpages.com:21/home/www/myweatherhi.atwebpages.com/
           done
