@@ -3,7 +3,7 @@ name: Deploy to AwardSpace
 on:
   push:
     branches:
-      - main  # Thay đổi thành nhánh mà bạn muốn theo dõi
+      - main  # Theo dõi nhánh 'main'
 
 jobs:
   deploy:
@@ -15,5 +15,5 @@ jobs:
       - name: Deploy to AwardSpace
         run: |
           for file in *; do
-            curl -T "$file" --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} smtp://https://cp1.awardspace.net/file-manager/www/myweatherhi.atwebpages.com          done
-
+            curl -T "$file" --user ${{ secrets.AWARDSPACE_USERNAME }}:${{ secrets.AWARDSPACE_PASSWORD }} ftp://https://cp1.awardspace.net/file-manager/www/myweatherhi.atwebpages.com/
+          done
